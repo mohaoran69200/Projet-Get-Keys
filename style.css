@@ -87,6 +87,7 @@
     text-decoration: none;
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
   }
 
   .disconnect-button:hover {
@@ -123,14 +124,14 @@
     align-items: center;
   }
 
-.title-discover {
-  width: 475px;
-  color: white;
-}
+  .title-discover {
+    width: 475px;
+    color: white;
+  }
 
-.title-discover h1 {
-  font-size: 60px;
-}
+  .title-discover h1 {
+    font-size: 60px;
+  }
 
   #search {
     display: flex;
@@ -196,6 +197,7 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+    margin-top: 50px;
   }
 
   .description h1 {
@@ -218,7 +220,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 300px;
+    height: 500px;
     margin-top: 50px;
     margin-bottom: 100px;
   }
@@ -227,7 +229,11 @@
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: 300px;
+    height: 450px;
+    border-radius: 5px;
+    box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
+    -webkit-box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
+    -moz-box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
   }
 
   .house-img {
@@ -236,8 +242,10 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
-    height: 175px;
+    height: 250px;
     background-color: #159a9c;
+    border-radius: 5px;
+
   }
 
   .house-img img {
@@ -245,8 +253,9 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: 175px;
+    height: 250px;
     max-width: 100%;
+    border-radius: 5px 5px 0px 0px;
   }
 
   .img-favorite {
@@ -331,6 +340,7 @@
     color: white;
     border: none;
     margin-left: 7px;
+    border-radius: 5px;
   }
 
   button.contact-button {
@@ -349,15 +359,17 @@
     color: white;
     border: none;
     margin-right: 7px;
+    border-radius: 5px;
   }
 
   .house-text {
     display: flex;
     background-color: #002333;
     width: 100%;
-    height: 125px;
+    height: 200px;
     flex-direction: column;
     justify-content: space-around;
+    border-radius: 0px 0px 5px 5px;
   }
 
   .price {
@@ -445,7 +457,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 300px;
+    height: 400px;
     margin-top: 50px;
     margin-bottom: 100px;
   }
@@ -506,6 +518,9 @@
     max-width: 440px;
     margin: 20px;
     align-items: center;
+    box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
+    -webkit-box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
+    -moz-box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
   }
 
   .contact-container label {
