@@ -245,7 +245,6 @@
     height: 250px;
     background-color: #159a9c;
     border-radius: 5px;
-
   }
 
   .house-img img {
@@ -621,20 +620,18 @@
   /* End footer */
 }
 
-@media screen and (min-width:769px) and (max-width:1099px) {
-    
-}
+@media screen and (min-width:769px) and (max-width:1099px) {}
 
 @media screen and (max-width: 768px) {
 
   .header-burger {
-      display: block;
+    display: block;
   }
 
   .header-burger svg {
-      stroke: #002333;
-      width: 20px;
-      height: 20px;
+    stroke: #002333;
+    width: 20px;
+    height: 20px;
   }
 
 }
