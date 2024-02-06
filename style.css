@@ -122,6 +122,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    max-width: 100%;
   }
 
   .title-discover {
