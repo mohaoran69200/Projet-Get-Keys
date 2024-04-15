@@ -8,9 +8,11 @@ $properties = [
         "sft" => "2,808 sft",
         "des" => "Discover luxury living in this 2-story masterpiece on a serene cul-de-sac ... ",
         "type" => "For sale",
-        "img1" => "./images/Houston_villa/imghouston1.jpg",
-        "img2" => "./images/Houston_villa/imghouston2.jpg",
-        "img3" => "./images/Houston_villa/imghouston3.jpg",
+        "imgs" => [
+          "./images/Houston_villa/imghouston1.jpg",
+          "./images/Houston_villa/imghouston2.jpg",
+          "./images/Houston_villa/imghouston3.jpg",
+        ],
         "idC" => "Carroussel1"
     ],
     [
@@ -21,9 +23,11 @@ $properties = [
         "sft" => "7,148 sft",
         "des" => "Fall in love with the visual symphony that is the prestigious Paseo Miramar ...  ",
         "type" => "For sale",
-        "img1" => "./images/pacific_palisades/pp2.jpg",
-        "img2" => "./images/pacific_palisades/pp3.jpg",
-        "img3" => "./images/pacific_palisades/pp4.jpg",
+        "imgs" => [
+          "./images/pacific_palisades/pp2.jpg",
+          "./images/pacific_palisades/pp3.jpg",
+          "./images/pacific_palisades/pp4.jpg",
+        ],
         "idC" => "Carroussel2"
 
     ],
@@ -35,9 +39,11 @@ $properties = [
             "sft" => "1,100 sft",
             "des" => "This two-bedroom has a lot going for it ... ",
             "type" => "For rent",
-            "img1" => "./images/boston_apartment/boston2.jpg",
-            "img2" => "./images/boston_apartment/boston3.jpg",
-            "img3" => "./images/boston_apartment/bostonapart.jpg",
+            "imgs" => [
+              "./images/boston_apartment/boston2.jpg",
+              "./images/boston_apartment/boston3.jpg",
+              "./images/boston_apartment/bostonapart.jpg",
+            ],
             "idC" => "Carroussel4"
         ],
         [
@@ -48,9 +54,11 @@ $properties = [
             "sft" => "1,454 sft",
             "des" => "Spacious large 2 bedroom CO-OP in the heart of flushing ... ",
             "type" => "For rent",
-            "img1" => "./images/new-york_apartment/nyapart.jpg",
-            "img2" => "./images/new-york_apartment/ny2.jpg",
-            "img3" => "./images/new-york_apartment/ny3.jpg",
+            "imgs" => [
+              "./images/new-york_apartment/nyapart.jpg",
+              "./images/new-york_apartment/ny2.jpg",
+              "./images/new-york_apartment/ny3.jpg",
+            ],
             "idC" => "Carroussel5"
     
         ],
@@ -62,9 +70,11 @@ $properties = [
           "sft" => "2,976 sft",
           "des" => "Welcome home to this absolutely stunning and well-appointed home in Laureate Park ...  ",
           "type" => "For sale",
-          "img1" => "./images/orlando_villa/orlandohouse1.jpg",
-          "img2" => "./images/orlando_villa/orlando2.jpg",
-          "img3" => "./images/orlando_villa/orlando3.jpg",
+          "imgs" => [
+            "./images/orlando_villa/orlandohouse1.jpg",
+            "./images/orlando_villa/orlando2.jpg",
+            "./images/orlando_villa/orlando3.jpg",
+          ],
           "idC" => "Carroussel3"
       ],
         [
@@ -75,9 +85,11 @@ $properties = [
             "sft" => "3,195 sft",
             "des" => "Looking for an awesome investment opportunity ?!",
             "type" => "For rent",
-            "img1" => "./images/okc/okcapart.jpg",
-            "img2" => "./images/okc/okc2.jpg",
-            "img3" => "./images/okc/okc3.jpg",
+            "imgs" => [
+              "./images/okc/okcapart.jpg",
+              "./images/okc/okc2.jpg",
+              "./images/okc/okc3.jpg",
+            ],
             "idC" => "Carroussel6"
         ]
         ];

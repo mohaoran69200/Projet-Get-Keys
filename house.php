@@ -17,13 +17,13 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="<?php echo $property["img1"] ?>" class="d-block w-100" alt="Houston1">
+                            <img src="<?php echo $property["imgs"][0] ?>" class="d-block w-100" alt="Houston1">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?php echo $property["img2"] ?>" class="d-block w-100" alt="House2">
+                            <img src="<?php echo $property["imgs"][1] ?>" class="d-block w-100" alt="House2">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?php echo $property["img3"] ?>" class="d-block w-100" alt="Houston3">
+                            <img src="<?php echo $property["imgs"][2] ?>" class="d-block w-100" alt="Houston3">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#<?php echo $property["idC"] ?>"
