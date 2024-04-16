@@ -1,4 +1,5 @@
 <?php 
+// Tableau des propriétés immobilières
 $properties = 
 [
     [
@@ -119,51 +120,58 @@ $properties =
 
 <body>
     <?php 
+    // Inclusion du header
     require_once './_partials/_header.php';
   ?>
     <main>
-        <!-- Start section -->
+        <!-- Section des maisons à vendre -->
         <section>
             <h1 id="house">House</h1>
-            <!-- Start container -->
+            <!-- Conteneur pour les maisons à vendre -->
 
             <div class="house-container">
                 <?php
-      $propertiesForSale = [];
-      $propertiesForRent = [];
-      foreach ($properties as $property) {
-          if ($property["type"] == "For sale") {
-              $propertiesForSale = $property;
-              include './_partials/listings/_house.php';
-          }
-      }
+                 // Parcours des propriétés pour afficher les maisons à vendre
+        $propertiesForSale = [];
+        $propertiesForRent = [];
+        foreach ($properties as $property) {
+            if ($property["type"] == "For sale") {
+                $propertiesForSale = $property;
+              // Inclusion du template pour afficher une maison
+                include './_partials/listings/_house.php';
+        }
+    }
     ?>
             </div>
-            <!-- End container -->
+            <!-- Fin du conteneur des maisons à vendre -->
         </section>
-        <!-- End section -->
-        <!-- Start section -->
+        <!-- Fin de la section des maisons à vendre -->
+        <!-- Section des appartements à louer -->
         <section>
             <h1 id="apartment">Apartment</h1>
-            <!-- Start Container -->
+            <!-- Conteneur pour les appartements à louer -->
             <div class="apartment-container">
                 <?php
+                // Parcours des propriétés pour afficher les appartements à louer
         foreach ($properties as $property) {
-          if ($property["type"] == "For rent") {
-              $propertiesForSale = $property;
-              include './_partials/listings/_house.php';
-          }
-      }
-  ?>
+            if ($property["type"] == "For rent") {
+                $propertiesForSale = $property;
+              // Inclusion du template pour afficher un appartement
+                include './_partials/listings/_house.php';
+        }
+    }
+    ?>
             </div>
-            <!-- End Container -->
+            <!-- Fin du conteneur des appartements à louer -->
         </section>
-        <!-- End section -->
-        <!-- Start section -->
+        <!-- Fin de la section des appartements à louer -->
+
+        <!-- Inclusion du footer -->
         <?php 
     require_once './_partials/_footer.php';
-  ?>
+    ?>
     </main>
+    <!-- Inclusion de Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
