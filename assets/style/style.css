@@ -3,17 +3,17 @@
 
   @font-face {
     font-family: title-site;
-    src: url(./fonts/OleoScript-Bold.ttf);
+    src: url(../fonts/OleoScript-Bold.ttf);
   }
 
   @font-face {
     font-family: title2;
-    src: url(./fonts/PTSans-Bold.ttf);
+    src: url(../fonts/PTSans-Bold.ttf);
   }
 
   @font-face {
     font-family: regular;
-    src: url(./fonts/Nunito-VariableFont_wght.ttf);
+    src: url(../fonts/Nunito-VariableFont_wght.ttf);
   }
 
   /* Start Header */
@@ -115,7 +115,7 @@
     display: flex;
     width: 100%;
     height: 675px;
-    background-image: url(./images/hiDpiExtraLarge.jpg);
+    background-image: url(../images/hiDpiExtraLarge.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -156,7 +156,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./logo/Google\ Web\ Search.png);
+    background-image: url(../logo/Google\ Web\ Search.png);
     background-repeat: no-repeat;
     background-size: cover;
     border: none;

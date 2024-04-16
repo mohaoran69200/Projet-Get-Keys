@@ -4,7 +4,7 @@
   <nav class="navbar">
     <div class="container-logo">
       <a href="#" class="logo">Get Keys</a>
-      <img src="./logo/House Keys.png" alt="Logo" />
+      <img src="../assets/logo/House Keys.png" alt="Logo" />
     </div>
     <div class="nav-links">
       <ul>
@@ -14,7 +14,7 @@
         <li><a href="#favorites">My favorites</a></li>
         <li>
           <a href="#" class="disconnect-button">
-            <img src="./logo/Male User.png" alt="Logo" class="disconnect-logo" />
+            <img src="../assets/logo/Male User.png" alt="Logo" class="disconnect-logo" />
             Disconnect
           </a>
         </li>
