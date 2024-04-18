@@ -1,4 +1,6 @@
 <?php 
+// Démarre la session PHP
+session_start();
 // Tableau des propriétés immobilières
 $properties = 
 [
@@ -99,8 +101,15 @@ $properties =
             "./assets/images/okc/okc3.jpg",
             ],
         "idC" => "Carroussel6"
-    ]
+        ],
 ];
+// Enregistrement du tableau properties en session
+if (!isset($_SESSION['properties'])) {
+    $_SESSION['properties'] = $properties;
+
+}
+
+var_dump($_SESSION['properties']);
 
     ?>
 
@@ -130,18 +139,32 @@ $properties =
             <!-- Conteneur pour les maisons à vendre -->
 
             <div class="house-container">
-                <?php
-                 // Parcours des propriétés pour afficher les maisons à vendre
-        $propertiesForSale = [];
-        $propertiesForRent = [];
-        foreach ($properties as $property) {
-            if ($property["type"] == "For sale") {
+                
+
+
+    <!--      $propertiesForSale = [];
+         $propertiesForRent = [];
+         foreach (isset($_SESSION['properties']) ? $_SESSION['properties'] : $properties as $property) {
+             if ($property["type"] == "For sale") {
+                 $propertiesForSale = $property;
+                 include './_partials/listings/_house.php';
+         }
+     } -->
+    
+
+<?php
+
+        foreach (isset($_SESSION['properties']) ? $_SESSION['properties'] : $properties as $property) {
+            
                 $propertiesForSale = $property;
               // Inclusion du template pour afficher une maison
                 include './_partials/listings/_house.php';
-        }
+        
     }
     ?>
+
+    
+   
             </div>
             <!-- Fin du conteneur des maisons à vendre -->
         </section>
@@ -153,7 +176,7 @@ $properties =
             <div class="apartment-container">
                 <?php
                 // Parcours des propriétés pour afficher les appartements à louer
-        foreach ($properties as $property) {
+        foreach (isset($_SESSION['properties']) ? $_SESSION['properties'] : $properties as $property) {
             if ($property["type"] == "For rent") {
                 $propertiesForSale = $property;
               // Inclusion du template pour afficher un appartement
@@ -166,11 +189,13 @@ $properties =
         </section>
         <!-- Fin de la section des appartements à louer -->
 
+    </main>
+
+    
         <!-- Inclusion du footer -->
         <?php 
     require_once './_partials/_footer.php';
     ?>
-    </main>
     <!-- Inclusion de Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

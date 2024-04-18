@@ -1,4 +1,6 @@
 <?php
+// Démarre la session PHP
+session_start();
 // Initialiser les variables de message d'erreur
 $errors = [];
 
@@ -39,14 +41,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['description'] = "Description is required";
     }
 
-    // Si aucune erreur n'est détectée, procéder à la redirection
+    // Vérification du nombre minimum d'images téléchargées
+    if (count($_FILES["images"]["name"]) < 3) {
+        $errors['images'] = "Veuillez télécharger au moins trois images.";
+    }
+
+    // Si aucune erreur n'est détectée, ajouter l'annonce au tableau $properties en session
     if (empty($errors)) {
+        // Récupération des données du formulaire
+        $annonce = [
+            "ville" => $_POST['localisation'],
+            "prix" => $_POST['prix'],
+            "bd" => $_POST['bedroom'],
+            "ba" => $_POST['bathroom'],
+            "sft" => $_POST['surface'],
+            "des" => $_POST['description'],
+            "type" => $_POST['type'],
+            // Vous devrez également gérer le téléchargement d'images ici
+            "imgs" => [],
+            "idC" => uniqid("Carroussel") // Génère un identifiant unique pour l'annonce
+        ];
+
+        // Ajout de l'annonce au tableau $properties en session
+        $_SESSION['properties'][] = $annonce;
+
+
         // Redirection vers la page de confirmation ou de traitement des données
-        header("Location: confirmation.php");
+        header("Location: /index.php");
         exit(); // Assurez-vous d'arrêter l'exécution du script après la redirection
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get Keys | Home</title>
+    <title>Get Keys | New Ad</title>
     <link rel="stylesheet" href="../assets/style/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -66,19 +92,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php 
     // Inclure le header
     require_once '../_partials/_header.php';
-  ?>
+    ?>
     <main>
         <!-- Inclure le formulaire -->
         <?php
         require '../_partials/listings/_form_new_ad.php';
         ?>
 
-        <?php 
+    </main>
+    <?php 
         // Inclure le footer
         require_once '../_partials/_footer.php';
         ?>
-
-    </main>
     <!-- Inclure Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

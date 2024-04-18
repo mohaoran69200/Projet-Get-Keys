@@ -1,4 +1,4 @@
-<form action="../../ad/annonces.php" method="post">
+<form method="post" enctype="multipart/form-data">
     <!-- Champ 'Localisation' -->
     <label for="localisation">Localisation</label>
     <input type="text" name="localisation" id="localisation" required>
@@ -37,6 +37,11 @@
     <label for="description">Description</label>
     <textarea name="description" id="description" cols="30" rows="10" required></textarea>
     <?php if (!empty($errors['description'])) echo '<div class="error">' . $errors['description'] . '</div>'; ?>
+
+    <!-- Section pour uploader des images -->
+    <label for="images">Upload Images</label>
+    <input type="file" name="images[]" id="images" accept="image/*" multiple required>
+    <small>Minimum 3 images</small>
 
     <!-- Bouton de soumission -->
     <button type="submit">Submit</button>

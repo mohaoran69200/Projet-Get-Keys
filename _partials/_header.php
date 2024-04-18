@@ -18,9 +18,9 @@
         <li><a href="#favorites">My favorites</a></li>
         <!-- Bouton de déconnexion -->
         <li>
-          <a href="#" class="disconnect-button">
+          <a href="../login.php" class="disconnect-button">
             <img src="../assets/logo/Male User.png" alt="Logo" class="disconnect-logo" />
-            Disconnect
+            Log In
           </a>
         </li>
       </ul>
