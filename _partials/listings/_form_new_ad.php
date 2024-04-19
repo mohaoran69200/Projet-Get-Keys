@@ -1,3 +1,5 @@
+<div class="form-section">
+  <div class="form-container">
 <form method="post" enctype="multipart/form-data">
     <!-- Champ 'Localisation' -->
     <label for="localisation">Localisation</label>
@@ -17,6 +19,15 @@
         <option value="rent">For rent</option>
     </select>
     <?php if (!empty($errors['type'])) echo '<div class="error">' . $errors['type'] . '</div>'; ?>
+
+    <!-- Champ 'Type-home' (sélection) -->
+    <label for="type-home">Type of home</label>
+    <select name="type-home" id="type-home" required>
+        <option value="">Select type</option>
+        <option value="House">House</option>
+        <option value="Apartment">Apartment</option>
+    </select>
+    <?php if (!empty($errors['type-home'])) echo '<div class="error">' . $errors['type'] . '</div>'; ?>
 
     <!-- Champ 'Number of bedroom' -->
     <label for="bedroom">Number of bedroom</label>
@@ -44,5 +55,7 @@
     <small>Minimum 3 images</small>
 
     <!-- Bouton de soumission -->
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn_form">Submit</button>
 </form>
+</div>
+</div>

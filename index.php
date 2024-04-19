@@ -12,6 +12,7 @@ $properties =
         "sft" => "2,808 sft",
         "des" => "Discover luxury living in this 2-story masterpiece on a serene cul-de-sac ... ",
         "type" => "For sale",
+        "type-home" => "House",
         "imgs" => 
         [
         "./assets/images/Houston_villa/imghouston1.jpg",
@@ -28,6 +29,7 @@ $properties =
         "sft" => "7,148 sft",
         "des" => "Fall in love with the visual symphony that is the prestigious Paseo Miramar ...  ",
         "type" => "For sale",
+        "type-home" => "House",
         "imgs" => 
         [
         "./assets/images/pacific_palisades/pp2.jpg",
@@ -45,6 +47,7 @@ $properties =
         "sft" => "1,100 sft",
         "des" => "This two-bedroom has a lot going for it ... ",
         "type" => "For rent",
+        "type-home" => "Apartment",
         "imgs" => 
             [
             "./assets/images/boston_apartment/boston2.jpg",
@@ -61,6 +64,7 @@ $properties =
         "sft" => "1,454 sft",
         "des" => "Spacious large 2 bedroom CO-OP in the heart of flushing ... ",
         "type" => "For rent",
+        "type-home" => "Apartment",
         "imgs" =>
             [
             "./assets/images/new-york_apartment/nyapart.jpg",
@@ -78,6 +82,7 @@ $properties =
         "sft" => "2,976 sft",
         "des" => "Welcome home to this absolutely stunning and well-appointed home in Laureate Park ...  ",
         "type" => "For sale",
+        "type-home" => "House",
         "imgs" => 
             [
             "./assets/images/orlando_villa/orlandohouse1.jpg",
@@ -94,6 +99,7 @@ $properties =
         "sft" => "3,195 sft",
         "des" => "Looking for an awesome investment opportunity ?!",
         "type" => "For rent",
+        "type-home" => "Apartment",
         "imgs" => 
             [
             "./assets/images/okc/okcapart.jpg",
@@ -103,13 +109,12 @@ $properties =
         "idC" => "Carroussel6"
         ],
 ];
-// Enregistrement du tableau properties en session
-if (!isset($_SESSION['properties'])) {
+ // Enregistrement du tableau properties en session si ce n'est pas déjà fait
+ if (!isset($_SESSION['properties'])) {
     $_SESSION['properties'] = $properties;
-
 }
 
-var_dump($_SESSION['properties']);
+// var_dump($_SESSION['properties']);
 
     ?>
 
@@ -137,53 +142,35 @@ var_dump($_SESSION['properties']);
         <section>
             <h1 id="house">House</h1>
             <!-- Conteneur pour les maisons à vendre -->
-
             <div class="house-container">
-                
-
-
-    <!--      $propertiesForSale = [];
-         $propertiesForRent = [];
-         foreach (isset($_SESSION['properties']) ? $_SESSION['properties'] : $properties as $property) {
-             if ($property["type"] == "For sale") {
-                 $propertiesForSale = $property;
-                 include './_partials/listings/_house.php';
-         }
-     } -->
-    
-
-<?php
-
-        foreach (isset($_SESSION['properties']) ? $_SESSION['properties'] : $properties as $property) {
-            
-                $propertiesForSale = $property;
-              // Inclusion du template pour afficher une maison
-                include './_partials/listings/_house.php';
-        
-    }
-    ?>
-
-    
-   
+            <?php
+                // Affichage des maisons à vendre
+                foreach ($_SESSION['properties'] as $property) {
+                    // Vérifie si la clé "type-home" est définie avant d'y accéder
+                    if (isset($property['type-home']) && $property['type-home'] === 'House') {
+                        include './_partials/listings/_house.php';
+                    }
+                }
+                ?>
             </div>
             <!-- Fin du conteneur des maisons à vendre -->
         </section>
         <!-- Fin de la section des maisons à vendre -->
+
         <!-- Section des appartements à louer -->
         <section>
             <h1 id="apartment">Apartment</h1>
             <!-- Conteneur pour les appartements à louer -->
             <div class="apartment-container">
-                <?php
-                // Parcours des propriétés pour afficher les appartements à louer
-        foreach (isset($_SESSION['properties']) ? $_SESSION['properties'] : $properties as $property) {
-            if ($property["type"] == "For rent") {
-                $propertiesForSale = $property;
-              // Inclusion du template pour afficher un appartement
-                include './_partials/listings/_house.php';
-        }
-    }
-    ?>
+            <?php
+                // Affichage des appartements à louer
+                foreach ($_SESSION['properties'] as $property) {
+                    // Vérifie si la clé "type-home" est définie avant d'y accéder
+                    if (isset($property['type-home']) && $property['type-home'] === 'Apartment') {
+                        include './_partials/listings/_house.php';
+                    }
+                }
+                ?>
             </div>
             <!-- Fin du conteneur des appartements à louer -->
         </section>

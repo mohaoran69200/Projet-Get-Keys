@@ -1,0 +1,84 @@
+/* Start contact section */
+
+input[type=text],
+textarea,
+input[type=email] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 24px;
+    /* Augmentez la marge inférieure pour plus d'espacement */
+    margin-right: 0px;
+    margin-left: 0px;
+    resize: vertical;
+    font-family: regular;
+}
+
+label {
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+}
+
+.btn_form {
+    background-color: #159a9c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: regular;
+    display: block;
+    /* Assurez-vous que le bouton est affiché comme un bloc pour pouvoir définir une largeur */
+    width: fit-content;
+    /* Ajuste la largeur du bouton en fonction de son contenu */
+    margin: 0 auto;
+    /* Centre le bouton horizontalement */
+}
+
+.btn_form:hover {
+    background-color: #787d83;
+}
+
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    /* Aligne les éléments verticalement */
+    align-items: center;
+    /* Aligne les éléments horizontalement */
+    margin-top: 200px;
+    position: relative;
+    /* Permet un positionnement relatif pour l'élément enfant */
+}
+
+.form-container {
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #002333;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px;
+    align-items: center;
+    /* Aligne les éléments enfants horizontalement */
+    box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
+    -webkit-box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
+    -moz-box-shadow: 6px 10px 17px 0px rgba(0, 35, 51, 0.69);
+}
+
+.form-container label {
+    color: white;
+    font-family: title2;
+}
+
+/* Style pour le champ d'upload de fichiers */
+input[type=file]::placeholder {
+    color: white;
+    /* Définit la couleur du texte par défaut en blanc */
+}
+
+/* End section */

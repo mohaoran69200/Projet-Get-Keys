@@ -4,6 +4,15 @@ session_start();
 // Initialiser les variables de message d'erreur
 $errors = [];
 
+// Vérifie si l'utilisateur est connecté en vérifiant si la variable de session 'username' est définie
+$userLoggedIn = isset($_SESSION['username']);
+
+// Si l'utilisateur n'est pas connecté, redirige-le vers la page de connexion
+if (!$userLoggedIn) {
+    header('Location: ../login.php');
+    exit; // Arrête l'exécution du script après la redirection
+}
+
 // Vérifications des données du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérification du champ 'localisation'
@@ -57,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "sft" => $_POST['surface'],
             "des" => $_POST['description'],
             "type" => $_POST['type'],
+            "type-home" => $_POST['type-home'],
             // Vous devrez également gérer le téléchargement d'images ici
             "imgs" => [],
             "idC" => uniqid("Carroussel") // Génère un identifiant unique pour l'annonce
@@ -82,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Keys | New Ad</title>
     <link rel="stylesheet" href="../assets/style/style.css" />
+    <link rel="stylesheet" href="../assets/style/form.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -89,11 +100,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <body>
-    <?php 
+<?php 
     // Inclure le header
     require_once '../_partials/_header.php';
     ?>
     <main>
+
         <!-- Inclure le formulaire -->
         <?php
         require '../_partials/listings/_form_new_ad.php';
