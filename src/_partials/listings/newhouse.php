@@ -56,15 +56,15 @@
         <!-- Détails de la maison (nombre de chambres, de salles de bains et surface) -->
         <div class="detail">
             <span class="bd">
-                <img src="../../assets/logo/Empty Bed.png" alt="bed">
+                <img src="../../../assets/logo/Empty Bed.png" alt="bed">
                 <?php echo $annonce["bd"];?>
             </span>
             <span class="ba">
-                <img src="../../assets/logo/Bathtub.png" alt="Bathtub">
+                <img src="../../../assets/logo/Bathtub.png" alt="Bathtub">
                 <?php echo $annonce["ba"];?>
             </span>
             <span class="sft">
-                <img src="../../assets/logo/Surface.png" alt="Surface">
+                <img src="../../../assets/logo/Surface.png" alt="Surface">
                 <?php echo $annonce["sft"];?>
             </span>
         </div>

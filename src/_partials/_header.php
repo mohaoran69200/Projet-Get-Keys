@@ -9,10 +9,10 @@ $userLoggedIn = isset($_SESSION['username']);
 
 // Si l'utilisateur est connecté, affiche le bouton "Disconnect"
 if ($userLoggedIn) {
-    $disconnectLink = '../logout.php'; // Lien vers la page de déconnexion
+    $disconnectLink = '../security/logout.php'; // Lien vers la page de déconnexion
     $disconnectText = 'Disconnect'; // Texte du bouton de déconnexion
 } else {
-    $disconnectLink = '../login.php'; // Lien vers la page de connexion
+    $disconnectLink = '../security/login.php'; // Lien vers la page de connexion
     $disconnectText = 'Login'; // Texte du bouton de connexion
 }
 ?>
@@ -24,8 +24,8 @@ if ($userLoggedIn) {
         <!-- Conteneur du logo -->
         <div class="container-logo">
             <!-- Logo et lien vers la page d'accueil -->
-            <a href="../index.php" class="home-button">
-                <img src="../assets/logo/House Keys.png" alt="Logo" />
+            <a href="../../index.php" class="home-button">
+                <img src="../../assets/logo/House Keys.png" alt="Logo" />
                 <span class="logo-text">Get Keys</span>
             </a>
         </div>
@@ -39,12 +39,12 @@ if ($userLoggedIn) {
                 <li><a href="#favorites">My favorites</a></li>
                 <!-- Bouton "Add" redirigeant vers new.php -->
                 <li>
-                    <a href="/ad/new.php" class="add-button">Add</a>
+                    <a href="../listings_ad/new.php" class="add-button">Add</a>
                 </li>
                 <!-- Bouton de connexion ou de déconnexion -->
                 <li>
                     <a href="<?php echo $disconnectLink; ?>" class="disconnect-button">
-                        <img src="../assets/logo/Male User.png" alt="Logo" class="disconnect-logo" />
+                        <img src="../../assets/logo/Male User.png" alt="Logo" class="disconnect-logo" />
                         <?php echo $disconnectText; ?>
                     </a>
                 </li>

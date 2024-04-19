@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_regenerate_id(true);
 
         // Redirection de l'utilisateur vers la page des commentaires
-        header('Location: /ad/new.php');
+        header('Location: ../listings_ad/new.php');
         exit; // Arrêt du script pour éviter l'exécution de code supplémentaire après la redirection
     } else {
         // Si les identifiants sont incorrects, préparation d'un message d'erreur
@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8" /> <!-- Définit l'encodage des caractères -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Définit les propriétés de l'affichage sur les appareils mobiles -->
     <title>Get Keys | Login</title> <!-- Titre de la page -->
-    <link rel="stylesheet" href="./assets/style/style.css" /> <!-- Inclut la feuille de style principale -->
-    <link rel="stylesheet" href="./assets/style/login.css" /> <!-- Inclut la feuille de style spécifique pour la page de connexion -->
+    <link rel="stylesheet" href="../../assets/style/style.css" /> <!-- Inclut la feuille de style principale -->
+    <link rel="stylesheet" href="../../assets/style/login.css" /> <!-- Inclut la feuille de style spécifique pour la page de connexion -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <?php 
     // Inclusion du header
-    require_once './_partials/_header.php'; // Inclut le fichier du haut de page (header)
+    require_once '../_partials/_header.php'; // Inclut le fichier du haut de page (header)
     ?>
 
 
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <footer>
     <!-- Inclusion du footer -->
     <?php 
-    require_once './_partials/_footer.php'; // Inclut le fichier du bas de page (footer)
+    require_once '../_partials/_footer.php'; // Inclut le fichier du bas de page (footer)
     ?>
 </footer>
     <!-- Inclusion de Bootstrap JS -->

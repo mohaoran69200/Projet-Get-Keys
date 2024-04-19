@@ -135,7 +135,7 @@ $properties =
 <body>
     <?php 
     // Inclusion du header
-    require_once './_partials/_header.php';
+    require_once './src/_partials/_header.php';
   ?>
     <main>
         <!-- Section des maisons à vendre -->
@@ -148,7 +148,7 @@ $properties =
                 foreach ($_SESSION['properties'] as $property) {
                     // Vérifie si la clé "type-home" est définie avant d'y accéder
                     if (isset($property['type-home']) && $property['type-home'] === 'House') {
-                        include './_partials/listings/_house.php';
+                        include './src/_partials/listings/_house.php';
                     }
                 }
                 ?>
@@ -167,7 +167,7 @@ $properties =
                 foreach ($_SESSION['properties'] as $property) {
                     // Vérifie si la clé "type-home" est définie avant d'y accéder
                     if (isset($property['type-home']) && $property['type-home'] === 'Apartment') {
-                        include './_partials/listings/_house.php';
+                        include './src/_partials/listings/_house.php';
                     }
                 }
                 ?>
@@ -181,7 +181,7 @@ $properties =
     
         <!-- Inclusion du footer -->
         <?php 
-    require_once './_partials/_footer.php';
+    require_once './src/_partials/_footer.php';
     ?>
     <!-- Inclusion de Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
