@@ -50,9 +50,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['description'] = "Description is required";
     }
 
-    // Vérification du nombre minimum d'images téléchargées
-    if (count($_FILES["images"]["name"]) < 3) {
-        $errors['images'] = "Veuillez télécharger au moins trois images.";
+    // Vérification si le fichier a été uploadé sans erreur
+    if (isset($_FILES['images'])) {
+        $file_errors = $_FILES['images']['error'];
+
+        // Vérifie s'il y a des erreurs lors du téléchargement des fichiers
+        if (is_array($file_errors)) {
+            foreach ($file_errors as $file_error) {
+                if ($file_error != UPLOAD_ERR_OK) {
+                    $errors['images'] = "Error uploading files";
+                    break;
+                }
+            }
+        } else {
+            if ($file_errors != UPLOAD_ERR_OK) {
+                $errors['images'] = "Error uploading files";
+            }
+        }
+
+        // Définit les types de fichiers autorisés
+        $allowed = ['jpg', 'jpeg', 'png', 'gif']; // Extensions autorisées
+
+        // Boucle sur les fichiers téléchargés
+        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+            // Récupère le nom du fichier
+            $filename = $_FILES['images']['name'][$key];
+            // Récupère le chemin temporaire du fichier
+            $filetmp = $tmp_name;
+            // Récupère l'extension du fichier
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+            // Vérifie si l'extension du fichier est autorisée
+            if (!in_array(strtolower($ext), $allowed)) {
+                $errors['images'] = "Extension de fichier non autorisée.";
+                break;
+            }
+        }
+
+        // Vérification du nombre minimum d'images téléchargées
+        if (count($_FILES["images"]["name"]) < 3) {
+            $errors['images'] = "Veuillez télécharger au moins trois images.";
+        }
     }
 
     // Si aucune erreur n'est détectée, ajouter l'annonce au tableau $properties en session
@@ -75,14 +113,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Ajout de l'annonce au tableau $properties en session
         $_SESSION['properties'][] = $annonce;
 
-
         // Redirection vers la page de confirmation ou de traitement des données
         header("Location: ../../index.php");
         exit(); // Assurez-vous d'arrêter l'exécution du script après la redirection
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,32 +131,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../../assets/style/form.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
 </head>
 
-
 <body>
-<?php 
-    // Inclure le header
-    require_once '../_partials/_header.php';
+    <?php 
+        // Inclure le header
+        require_once '../_partials/_header.php';
     ?>
     <main>
-
         <!-- Inclure le formulaire -->
-        <?php
-        require '../_partials/listings/_form_new_ad.php';
-        ?>
-
+        <?php require '../_partials/listings/_form_new_ad.php';
+        
+        echo"aaaaaaaaaaaaaaa".var_dump($_FILES); ?>
     </main>
     <?php 
         // Inclure le footer
         require_once '../_partials/_footer.php';
-        ?>
+    ?>
     <!-- Inclure Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-
 </body>
-
 </html>

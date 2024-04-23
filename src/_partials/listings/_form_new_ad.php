@@ -51,7 +51,7 @@
 
     <!-- Section pour uploader des images -->
     <label for="images">Upload Images</label>
-    <input type="file" name="images[]" id="images" accept="image/*" multiple required>
+    <input type="file" name="images[]" accept="image/*" multiple>
     <small>Minimum 3 images</small>
 
     <!-- Bouton de soumission -->

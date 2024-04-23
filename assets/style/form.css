@@ -40,7 +40,7 @@ label {
 }
 
 .btn_form:hover {
-    background-color: #787d83;
+    background-color:rgba(0, 35, 51, 0.69);
 }
 
 
@@ -58,7 +58,7 @@ label {
 .form-container {
     box-sizing: border-box;
     border-radius: 5px;
-    background-color: #002333;
+    background-color:#787d83;
     padding: 20px;
     width: 100%;
     max-width: 900px;

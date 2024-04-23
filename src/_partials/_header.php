@@ -39,7 +39,7 @@ if ($userLoggedIn) {
                 <li><a href="#favorites">My favorites</a></li>
                 <!-- Bouton "Add" redirigeant vers new.php -->
                 <li>
-                    <a href="../listings_ad/new.php" class="add-button">Add</a>
+                    <a href="/src/listings_ad/new.php" class="add-button">Add</a>
                 </li>
                 <!-- Bouton de connexion ou de déconnexion -->
                 <li>
