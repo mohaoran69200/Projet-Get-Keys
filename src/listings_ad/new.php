@@ -15,6 +15,7 @@ if (!$userLoggedIn) {
 
 // Vérifications des données du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $annonce = [];
     // Vérification du champ 'localisation'
     if (empty($_POST['localisation'])) {
         $errors['localisation'] = "Localisation is required";
@@ -84,6 +85,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!in_array(strtolower($ext), $allowed)) {
                 $errors['images'] = "Extension de fichier non autorisée.";
                 break;
+            } else {
+                // Si le fichier est valide, le déplace vers le dossier de destination
+                $destination = "/assets/uploads/" . uniqid('propertie-') . $filename;
+                move_uploaded_file($filetmp, "../.." . $destination);
+                // Stocke le chemin du fichier dans le tableau $annonce['imgs']
+                $imgs[] = $destination;
             }
         }
 
@@ -106,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "type" => $_POST['type'],
             "type-home" => $_POST['type-home'],
             // Vous devrez également gérer le téléchargement d'images ici
-            "imgs" => [],
+            "imgs" => $imgs,
             "idC" => uniqid("Carroussel") // Génère un identifiant unique pour l'annonce
         ];
 
@@ -129,28 +136,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Get Keys | New Ad</title>
     <link rel="stylesheet" href="../../assets/style/style.css" />
     <link rel="stylesheet" href="../../assets/style/form.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <?php 
-        // Inclure le header
-        require_once '../_partials/_header.php';
+    <?php
+    // Inclure le header
+    require_once '../_partials/_header.php';
     ?>
     <main>
         <!-- Inclure le formulaire -->
-        <?php require '../_partials/listings/_form_new_ad.php';
-        
-        echo"aaaaaaaaaaaaaaa".var_dump($_FILES); ?>
+        <?php require '../_partials/listings/_form_new_ad.php'; ?>
     </main>
-    <?php 
-        // Inclure le footer
-        require_once '../_partials/_footer.php';
+    <?php
+    // Inclure le footer
+    require_once '../_partials/_footer.php';
     ?>
     <!-- Inclure Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
+
 </html>

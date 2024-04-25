@@ -11,8 +11,7 @@
         <div id="<?php echo $annonce["idC"] ?>" class="carousel slide">
             <div class="carousel-indicators">
                 <!-- Indicateurs du carousel -->
-                <button type="button" data-bs-target="#<?php echo $annonce["idC"] ?>" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#<?php echo $annonce["idC"] ?>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#<?php echo $annonce["idC"] ?>" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#<?php echo $annonce["idC"] ?>" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
@@ -29,13 +28,11 @@
                 </div>
             </div>
             <!-- Contrôles du carousel -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#<?php echo $annonce["idC"] ?>"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#<?php echo $annonce["idC"] ?>" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#<?php echo $annonce["idC"] ?>"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#<?php echo $annonce["idC"] ?>" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -50,28 +47,28 @@
     <div class="house-text">
         <!-- Prix et type de la maison -->
         <div class="price">
-            <h2><?php echo $annonce["prix"];?></h2>
-            <p><?php echo $annonce["type"];?></p>
+            <h2><?php echo $annonce["prix"]; ?></h2>
+            <p><?php echo $annonce["type"]; ?></p>
         </div>
         <!-- Détails de la maison (nombre de chambres, de salles de bains et surface) -->
         <div class="detail">
             <span class="bd">
                 <img src="../../../assets/logo/Empty Bed.png" alt="bed">
-                <?php echo $annonce["bd"];?>
+                <?php echo $annonce["bd"]; ?>
             </span>
             <span class="ba">
                 <img src="../../../assets/logo/Bathtub.png" alt="Bathtub">
-                <?php echo $annonce["ba"];?>
+                <?php echo $annonce["ba"]; ?>
             </span>
             <span class="sft">
                 <img src="../../../assets/logo/Surface.png" alt="Surface">
-                <?php echo $annonce["sft"];?>
+                <?php echo $annonce["sft"]; ?>
             </span>
         </div>
         <!-- Adresse et description de la maison -->
         <div class="adress">
             <p>
-            <?php echo $annonce["des"];?>
+                <?php echo $annonce["des"]; ?>
             </p>
         </div>
     </div>

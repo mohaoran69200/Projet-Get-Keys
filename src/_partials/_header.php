@@ -9,10 +9,10 @@ $userLoggedIn = isset($_SESSION['username']);
 
 // Si l'utilisateur est connecté, affiche le bouton "Disconnect"
 if ($userLoggedIn) {
-    $disconnectLink = '../security/logout.php'; // Lien vers la page de déconnexion
+    $disconnectLink = '../../src/security/logout.php'; // Lien vers la page de déconnexion
     $disconnectText = 'Disconnect'; // Texte du bouton de déconnexion
 } else {
-    $disconnectLink = '../security/login.php'; // Lien vers la page de connexion
+    $disconnectLink = '../../src/security/login.php'; // Lien vers la page de connexion
     $disconnectText = 'Login'; // Texte du bouton de connexion
 }
 ?>

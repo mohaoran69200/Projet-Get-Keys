@@ -15,9 +15,9 @@ $properties =
         "type-home" => "House",
         "imgs" => 
         [
-        "./assets/images/Houston_villa/imghouston1.jpg",
-        "./assets/images/Houston_villa/imghouston2.jpg",
-        "./assets/images/Houston_villa/imghouston3.jpg",
+        "/assets/images/imghouston1.jpg",
+        "/assets/images/imghouston2.jpg",
+        "/assets/images/imghouston3.jpg"
         ],
         "idC" => "Carroussel1"
     ],
@@ -32,9 +32,9 @@ $properties =
         "type-home" => "House",
         "imgs" => 
         [
-        "./assets/images/pacific_palisades/pp2.jpg",
-        "./assets/images/pacific_palisades/pp3.jpg",
-        "./assets/images/pacific_palisades/pp4.jpg",
+        "/assets/images/pp2.jpg",
+        "/assets/images/pp3.jpg",
+        "/assets/images/pp4.jpg"
         ],
         "idC" => "Carroussel2"
 
@@ -50,9 +50,9 @@ $properties =
         "type-home" => "Apartment",
         "imgs" => 
             [
-            "./assets/images/boston_apartment/boston2.jpg",
-            "./assets/images/boston_apartment/boston3.jpg",
-            "./assets/images/boston_apartment/bostonapart.jpg",
+            "/assets/images/boston2.jpg",
+            "/assets/images/boston3.jpg",
+            "/assets/images/bostonapart.jpg",
             ],
         "idC" => "Carroussel4"
     ],
@@ -67,9 +67,9 @@ $properties =
         "type-home" => "Apartment",
         "imgs" =>
             [
-            "./assets/images/new-york_apartment/nyapart.jpg",
-            "./assets/images/new-york_apartment/ny2.jpg",
-            "./assets/images/new-york_apartment/ny3.jpg",
+            "/assets/images/nyapart.jpg",
+            "/assets/images/ny2.jpg",
+            "/assets/images/ny3.jpg",
             ],
         "idC" => "Carroussel5"
     
@@ -85,9 +85,9 @@ $properties =
         "type-home" => "House",
         "imgs" => 
             [
-            "./assets/images/orlando_villa/orlandohouse1.jpg",
-            "./assets/images/orlando_villa/orlando2.jpg",
-            "./assets/images/orlando_villa/orlando3.jpg",
+            "/assets/images/orlandohouse1.jpg",
+            "/assets/images/orlando2.jpg",
+            "/assets/images/orlando3.jpg",
             ],
         "idC" => "Carroussel3"
     ],
@@ -102,9 +102,9 @@ $properties =
         "type-home" => "Apartment",
         "imgs" => 
             [
-            "./assets/images/okc/okcapart.jpg",
-            "./assets/images/okc/okc2.jpg",
-            "./assets/images/okc/okc3.jpg",
+            "/assets/images/okcapart.jpg",
+            "/assets/images/okc2.jpg",
+            "/assets/images/okc3.jpg",
             ],
         "idC" => "Carroussel6"
         ],
@@ -113,9 +113,6 @@ $properties =
  if (!isset($_SESSION['properties'])) {
     $_SESSION['properties'] = $properties;
 }
-
-// var_dump($_SESSION['properties']);
-
     ?>
 
 <!DOCTYPE html>
@@ -148,7 +145,9 @@ $properties =
                 foreach ($_SESSION['properties'] as $property) {
                     // Vérifie si la clé "type-home" est définie avant d'y accéder
                     if (isset($property['type-home']) && $property['type-home'] === 'House') {
-                        include './src/_partials/listings/_house.php';
+                        // include '/src/_partials/listings/_house.php';
+                        include(__DIR__ . '/src/_partials/listings/_house.php');
+
                     }
                 }
                 ?>
