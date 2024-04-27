@@ -1,11 +1,32 @@
+<?php
+if ($userLoggedIn) {
+    echo '<form action="/src/pages/favorites.php" method="post">';
+    echo '<input type="hidden" name="action" value="add">';
+    echo '<input type="hidden" name="annonce_id" value="'. $property["id"]. '">';
+    echo '<button type="submit" class="favoris-button">';
+    echo '<img src="../../../assets/logo/Favorite.png" alt="favorite">';
+    echo '</button>';
+    echo '</form>';
+}
+?>
+
+
+
+
 <div class="house">
     <!-- Image et bouton de favoris -->
     <div class="house-img">
         <div class="img-favorite">
             <p><?php echo $property["ville"]; ?></p>
-            <button class="favoris-button">
-                <img src="../../../assets/logo/Favorite.png" alt="favorite">
-            </button>
+            <?php if ($userLoggedIn) : ?>
+                <form action="src/pages/favorites.php" method="post">
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="annonce_id" value="<?php echo $property["id"]; ?>">
+                    <button type="submit" class="favoris-button">
+                        <img src="../../../assets/logo/Favorite.png" alt="favorite">
+                    </button>
+                </form>
+            <?php endif; ?>
         </div>
         <!-- Carousel d'images -->
         <div id="<?php echo $property["idC"] ?>" class="carousel slide">
@@ -16,16 +37,8 @@
                 <button type="button" data-bs-target="#<?php echo $property["idC"] ?>" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <?php
-if (isset($property["imgs"]) && is_array($property["imgs"]) && count($property["imgs"]) > 0) {
-    $image = $property["imgs"][0];
-} else {
-    $image = ''; // Ou une autre valeur par défaut
-}
-?>
                 <!-- Images du carousel -->
                 <div class="carousel-item active">
-
                     <img src="<?php echo $property["imgs"][0] ?>" class="d-block w-100" alt="Houston1">
                 </div>
                 <div class="carousel-item">

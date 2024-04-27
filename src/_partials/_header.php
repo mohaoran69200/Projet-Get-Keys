@@ -36,7 +36,7 @@ if ($userLoggedIn) {
                 <li><a href="#house">House</a></li>
                 <li><a href="#apartment">Apartment</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#favorites">My favorites</a></li>
+                <li><a href="/src/pages/favorites.php">My favorites</a></li>
                 <!-- Bouton "Add" redirigeant vers new.php -->
                 <li>
                     <a href="/src/listings_ad/new.php" class="add-button">Add</a>
