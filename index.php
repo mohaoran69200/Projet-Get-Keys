@@ -21,8 +21,7 @@ if (isset($_SESSION['username'])) {
             }
             // Met à jour les propriétés immobilières dans la session
             $_SESSION['properties'] = $properties;
-            // Redirige l'utilisateur vers la page des favoris après avoir ajouté l'annonce
-            header("Location: favorites.php");
+
             exit();
         }
     }
