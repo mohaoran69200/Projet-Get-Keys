@@ -1,13 +1,13 @@
 <?php
-if ($userLoggedIn) {
-    echo '<form action="/src/pages/favorites.php" method="post">';
-    echo '<input type="hidden" name="action" value="add">';
-    echo '<input type="hidden" name="annonce_id" value="'. $property["id"]. '">';
-    echo '<button type="submit" class="favoris-button">';
-    echo '<img src="../../../assets/logo/Favorite.png" alt="favorite">';
-    echo '</button>';
-    echo '</form>';
-}
+// if ($userLoggedIn) {
+//     echo '<form action="/src/pages/favorites.php" method="post">';
+//     echo '<input type="hidden" name="action" value="add">';
+//     echo '<input type="hidden" name="annonce_id" value="'. $property["id"]. '">';
+//     echo '<button type="submit" class="favoris-button">';
+//     echo '<img src="../../../assets/logo/Favorite.png" alt="favorite">';
+//     echo '</button>';
+//     echo '</form>';
+// }
 ?>
 
 
@@ -17,7 +17,7 @@ if ($userLoggedIn) {
     <!-- Image et bouton de favoris -->
     <div class="house-img">
         <div class="img-favorite">
-            <p><?php echo $property["ville"]; ?></p>
+            <p><?php echo $property["city"]; ?></p>
             <?php if ($userLoggedIn) : ?>
                 <form action="src/pages/favorites.php" method="post">
                     <input type="hidden" name="action" value="add">
@@ -29,31 +29,28 @@ if ($userLoggedIn) {
             <?php endif; ?>
         </div>
         <!-- Carousel d'images -->
-        <div id="<?php echo $property["idC"] ?>" class="carousel slide">
+        <div id="<?php echo $property["idCaroussel"] ?>" class="carousel slide">
             <div class="carousel-indicators">
                 <!-- Indicateurs du carousel -->
-                <button type="button" data-bs-target="#<?php echo $property["idC"] ?>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#<?php echo $property["idC"] ?>" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#<?php echo $property["idC"] ?>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <?php foreach ($images as $index => $image) : ?>
+                    <button type="button" data-bs-target="#<?php echo $property["idCaroussel"] ?>" data-bs-slide-to="<?php echo $index; ?>" <?php echo ($index === 0) ? 'class="active" aria-current="true"' : ''; ?> aria-label="Slide <?php echo $index + 1; ?>"></button>
+                <?php endforeach; ?>
             </div>
             <div class="carousel-inner">
                 <!-- Images du carousel -->
-                <div class="carousel-item active">
-                    <img src="<?php echo $property["imgs"][0] ?>" class="d-block w-100" alt="Houston1">
-                </div>
-                <div class="carousel-item">
-                    <img src="<?php echo $property["imgs"][1] ?>" class="d-block w-100" alt="House2">
-                </div>
-                <div class="carousel-item">
-                    <img src="<?php echo $property["imgs"][2] ?>" class="d-block w-100" alt="Houston3">
-                </div>
+                <?php foreach ($images as $index => $image) : ?>
+                    <div class="carousel-item <?php echo ($index === 0) ? 'active' : ''; ?>">
+                        <img src="../../../assets/images/<?php echo $image['name']; ?>" class="d-block w-100" alt="Image <?php echo $index + 1; ?>">
+                    </div>
+                <?php endforeach; ?>
+
             </div>
             <!-- Contrôles du carousel -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#<?php echo $property["idC"] ?>" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#<?php echo $property["idCaroussel"] ?>" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#<?php echo $property["idC"] ?>" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#<?php echo $property["idCaroussel"] ?>" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -68,28 +65,28 @@ if ($userLoggedIn) {
     <div class="house-text">
         <!-- Prix et type de la maison -->
         <div class="price">
-            <h2><?php echo $property["prix"]; ?></h2>
-            <p><?php echo $property["type"]; ?></p>
+            <h2><?php echo $property["price"]; ?></h2>
+            <p><?php echo $property["type of home"]; ?></p>
         </div>
         <!-- Détails de la maison (nombre de chambres, de salles de bains et surface) -->
         <div class="detail">
             <span class="bd">
                 <img src="../../../assets/logo/Empty Bed.png" alt="bed">
-                <?php echo $property["bd"]; ?>
+                <?php echo $property["bedroom"]; ?>
             </span>
             <span class="ba">
                 <img src="../../../assets/logo/Bathtub.png" alt="Bathtub">
-                <?php echo $property["ba"]; ?>
+                <?php echo $property["bathroom"]; ?>
             </span>
             <span class="sft">
                 <img src="../../../assets/logo/Surface.png" alt="Surface">
-                <?php echo $property["sft"]; ?>
+                <?php echo $property["surface"]; ?>
             </span>
         </div>
         <!-- Adresse et description de la maison -->
         <div class="adress">
             <p>
-                <?php echo $property["des"]; ?>
+                <?php echo $property["description"]; ?>
             </p>
         </div>
     </div>

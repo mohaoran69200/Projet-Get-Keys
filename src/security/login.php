@@ -1,33 +1,22 @@
 <?php
-session_start(); // Démarre la session PHP
-$users = [
-    'user1' => 'superbg',    // Utilisateur "user1" avec mot de passe "superbg"
-    'user2' => 'miaou',   // Utilisateur "user2" avec mot de passe "miaou"
-    'admin' => 'admin123',    // Utilisateur "admin" avec mot de passe "admin123"
-];
+// Démarre la session PHP
+session_start();
 
-// Vérification si la méthode de la requête HTTP est POST pour traiter les données de formulaire envoyées
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Récupération du nom d'utilisateur et du mot de passe depuis le formulaire, avec utilisation de l'opérateur null coalescent pour éviter les notices PHP si les indices n'existent pas
-    $username = $_POST['pseudo'] ?? '';
-    $password = $_POST['password'] ?? '';
+
+$query = "INSERT INTO users (email"
 
     // Vérification si le nom d'utilisateur existe dans la "base de données" et si le mot de passe correspond
-    if (isset($users[$username]) && $users[$username] == $password) {
-        // Si valide, le nom d'utilisateur est stocké dans une variable de session
-        $_SESSION['username'] = $username;
-
+    if (isset($users[$username]) && $users[$username] == $password) 
         // Regénération de l'ID de session pour la sécurité (évite l'exploitation de session fixation)
         session_regenerate_id(true);
 
-        // Redirection de l'utilisateur vers la page des commentaires
-        header('Location: ../listings_ad/new.php');
+        // Redirection de l'utilisateur vers la page d'acceuil'
+        header('Location: ../../index.php');
         exit; // Arrêt du script pour éviter l'exécution de code supplémentaire après la redirection
     } else {
         // Si les identifiants sont incorrects, préparation d'un message d'erreur
         $error = 'Identifiants incorrects!';
     }
-}
 ?>
 
 
